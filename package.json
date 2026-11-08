@@ -1,0 +1,21 @@
+{
+  "name": "donuttrix-community",
+  "version": "4.3.0",
+  "private": true,
+  "description": "DonutTrix community website with accounts, chat, moderation and a 30-game free-play arcade",
+  "main": "server.js",
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "check": "node --check server.js && node --check public/app.js && node --check public/admin.js && node --check public/games.js && node --check lib/arcade-rules.js && node --check test/arcade-rules.test.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20.6.0"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^12.0.0",
+    "cookie-session": "^2.1.0",
+    "express": "^4.19.2"
+  }
+}
