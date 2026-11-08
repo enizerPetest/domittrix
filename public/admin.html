@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100c20">
+  <title>DonutTrix — Admin</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="admin-main">
+    <div class="admin-top"><a class="logo" href="index.html">Donut<span>Trix</span></a><a href="index.html">← Back to site</a></div>
+    <div class="page-title"><div class="eyebrow">CONTROL ROOM</div><h1>Admin panel</h1><p class="mut">Manage community accounts and chat messages.</p></div>
+    <div class="admin-message" id="adminMsg" role="status"></div>
+    <section class="card admin-card"><div class="section-heading"><div><div class="eyebrow">MEMBERS</div><h2>Accounts</h2></div><span class="count-pill" id="userCount">0</span></div><div class="table-wrap"><table id="users"><thead><tr><th>Username</th><th>Minecraft IGN</th><th>Joined</th><th>Status</th><th>Action</th></tr></thead><tbody></tbody></table></div></section>
+    <section class="card admin-card"><div class="section-heading"><div><div class="eyebrow">COMMUNITY</div><h2>Recent messages</h2></div></div><div id="messages" class="admin-messages"></div></section>
+  </main>
+  <script src="admin.js"></script>
+</body>
+</html>

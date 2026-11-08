@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#100c20">
+  <title>DonutTrix — Community & Arcade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <section id="auth" class="auth-screen" hidden>
+    <main class="auth-main">
+      <a class="logo logo-large" href="#">Donut<span>Trix</span></a>
+      <p class="mut">Your DonutSMP community hub.</p>
+      <div class="card auth-card">
+        <div class="eyebrow">WELCOME BACK</div>
+        <h1>Sign in</h1>
+        <label class="field-label" for="u">Username</label>
+        <input id="u" placeholder="Your username" autocomplete="username" maxlength="20">
+        <label class="field-label" for="pw">Password</label>
+        <input id="pw" type="password" placeholder="At least 8 characters" autocomplete="current-password" maxlength="72">
+        <div class="two auth-actions">
+          <button class="p" id="login">Log in</button>
+          <button id="register">Create account</button>
+        </div>
+        <div class="msg" id="authMsg" role="status"></div>
+      </div>
+      <p class="fine-print">Community accounts are separate from Minecraft and Microsoft accounts.</p>
+    </main>
+  </section>
+
+  <div id="app" hidden>
+    <header class="hd">
+      <a class="logo" href="#home">Donut<span>Trix</span></a>
+      <div class="header-right"><span class="status-dot"></span><span class="mut">Community online</span><span class="avatar" id="avatar">D</span></div>
+    </header>
+
+    <main class="content">
+      <section id="tab-home" class="tab-section">
+        <div class="hero card">
+          <div class="hero-copy">
+            <div class="eyebrow">DONUTSMP COMMUNITY</div>
+            <h1>Welcome to <span>DonutTrix</span></h1>
+            <p class="mut">A place to talk, play and meet other players.</p>
+            <button class="p" data-go="games">Explore games <span aria-hidden="true">↗</span></button>
+          </div>
+          <div class="hero-orbit" aria-hidden="true"><div class="orbit-ring"></div><div class="orbit-core">D<span>T</span></div><i>✦</i><b>✧</b></div>
+        </div>
+        <div class="section-heading"><div><div class="eyebrow">YOUR SPACE</div><h2>Quick access</h2></div></div>
+        <div class="quick-grid">
+          <button class="quick-card" data-go="chat"><span class="quick-icon">⌁</span><b>Community chat</b><small>Catch up with players</small><span class="quick-arrow">↗</span></button>
+          <button class="quick-card" data-go="games"><span class="quick-icon">◈</span><b>Mini games</b><small>Play free challenges</small><span class="quick-arrow">↗</span></button>
+          <button class="quick-card" data-go="profile"><span class="quick-icon">◎</span><b>Your profile</b><small>Set your Minecraft IGN</small><span class="quick-arrow">↗</span></button>
+        </div>
+        <div class="section-heading"><div><div class="eyebrow">PLAYER CARD</div><h2>Your profile</h2></div></div>
+        <div class="card profile-summary"><div class="avatar avatar-big" id="homeAvatar">D</div><div class="profile-summary-copy"><b id="homeName">Player</b><span class="mut" id="homeIgn">Minecraft IGN not set</span></div><button data-go="profile">Edit profile</button></div>
+      </section>
+
+      <section id="tab-games" class="tab-section" hidden>
+        <div id="gamesCatalog">
+          <div class="page-title games-title"><div class="eyebrow">DONUTTRIX ARCADE</div><h1>Games <span class="games-count">30</span></h1><p class="mut">Thirty original mini-games inspired by the reference gallery. Play for fun, set records and invite friends to online matches.</p></div>
+          <div class="games-toolbar">
+            <label class="game-search"><span>⌕</span><input id="gameSearch" type="search" placeholder="Search games…" autocomplete="off"></label>
+            <div class="game-filters" id="gameFilters">
+              <button class="filter-chip active" data-filter="all">All games</button>
+              <button class="filter-chip" data-filter="arcade">Arcade</button>
+              <button class="filter-chip" data-filter="puzzle">Puzzle</button>
+              <button class="filter-chip" data-filter="cards">Cards</button>
+              <button class="filter-chip" data-filter="party">Party</button>
+              <button class="filter-chip" data-filter="chance">Chance</button>
+            </div>
+          </div>
+          <div class="games-grid games-catalog-grid" id="gamesGrid"></div>
+          <p class="games-disclaimer">All games are free-play experiences. Scores are only for personal records and friendly leaderboards; they cannot be purchased, transferred, wagered or withdrawn.</p>
+        </div>
+        <section id="gameWorkspace" class="game-workspace" hidden>
+          <div class="game-workspace-head">
+            <button class="back-games" id="backToGames">← All games</button>
+            <div class="game-workspace-title"><div class="eyebrow" id="activeGameCategory">ARCADE</div><h1 id="activeGameTitle">Game</h1><p class="mut" id="activeGameDescription"></p></div>
+            <button class="restart-game" id="restartGame" title="Restart game">↻ Restart</button>
+          </div>
+          <div class="game-play-layout">
+            <div class="card game-play-card">
+              <div class="game-board-top"><span class="game-live-dot"></span><span>FREE PLAY</span><span class="game-board-note">No stakes · No payouts</span></div>
+              <div id="gameBoard" class="game-board"></div>
+              <p id="gameFeedback" class="game-feedback" aria-live="polite">Have fun!</p>
+            </div>
+            <aside class="card game-info-card"><div class="eyebrow">HOW TO PLAY</div><p id="gameInstructions" class="game-instructions"></p><div class="game-record"><span>YOUR BEST</span><b id="gameBest">—</b></div><div class="game-record"><span>ROUNDS PLAYED</span><b id="gamePlays">0</b></div><div class="game-info-note">Personal records sync to your DonutTrix account. There are no paid upgrades or redeemable rewards.</div><div class="game-leaderboard"><div class="eyebrow">ONLINE WINS</div><div id="gameLeaderboard"><p class="mut small">Loading leaderboard…</p></div></div></aside>
+          </div>
+        </section>
+      </section>
+
+      <section id="tab-wallet" class="tab-section" hidden>
+        <div class="wallet-hero card">
+          <div class="wallet-hero-top"><div><div class="eyebrow">DONUTTRIX WALLET</div><h1>Your wallet, <span>your space.</span></h1><p class="mut">A clean account dashboard for your DonutSMP community activity.</p></div><div class="wallet-emblem">◈</div></div>
+          <div class="wallet-balance"><span>DISPLAY BALANCE</span><strong>— <small>DT</small></strong><em>Connect your own wallet service to show a live balance.</em></div>
+          <div class="wallet-actions"><button class="p" type="button" data-wallet-action="deposit">＋ Deposit</button><button type="button" data-wallet-action="withdraw">↗ Withdraw</button></div><p id="walletNotice" class="wallet-notice" role="status" aria-live="polite">Preview only — no transactions are enabled.</p>
+        </div>
+        <div class="wallet-section-head"><div><div class="eyebrow">ACCOUNT OVERVIEW</div><h2>Wallet activity</h2></div><span class="wallet-pill">UI PREVIEW</span></div>
+        <div class="wallet-stats"><article class="card wallet-stat"><span>AVAILABLE</span><b>— DT</b><small>Live balance not connected</small></article><article class="card wallet-stat"><span>INCOMING</span><b>— DT</b><small>Waiting for integration</small></article><article class="card wallet-stat"><span>OUTGOING</span><b>— DT</b><small>Waiting for integration</small></article></div>
+        <div class="card wallet-history"><div class="wallet-history-head"><div><div class="eyebrow">RECENT ACTIVITY</div><h2>Transactions</h2></div><span class="mut small">No live transactions</span></div><div class="wallet-empty"><div class="wallet-empty-icon">⌁</div><b>Your activity will appear here</b><p>Connect your wallet backend to display verified deposits and withdrawals.</p></div></div>
+        <div class="wallet-security"><span>✦</span><div><b>Designed for clarity and safety</b><p>Balance and transaction controls are visual placeholders until your own wallet service is connected. This page does not move funds or contact Minecraft.</p></div></div>
+      </section>
+
+      <section id="tab-chat" class="tab-section" hidden>
+        <div class="page-title"><div class="eyebrow">SAY HELLO</div><h1>Community chat</h1><p class="mut">Keep it friendly. Messages are visible to signed-in users.</p></div>
+        <div class="card chat-card">
+          <div class="chat-head"><div><b>Global chat</b><span class="mut"> · Latest messages</span></div><span class="live-label"><i></i> LIVE</span></div>
+          <div class="chat" id="chatBox" aria-live="polite"><span class="mut">Loading messages…</span></div>
+          <div class="chatRow"><input id="chatMsg" placeholder="Write a message…" maxlength="300"><button class="p" id="chatSend">Send ↗</button></div>
+          <div class="chat-foot">Be respectful. Messages are limited to 300 characters.</div>
+        </div>
+      </section>
+
+      <section id="tab-profile" class="tab-section" hidden>
+        <div class="page-title"><div class="eyebrow">YOUR ACCOUNT</div><h1>Profile settings</h1><p class="mut">Manage your DonutTrix community profile.</p></div>
+        <div class="card profile-card">
+          <div class="profile-cover"></div>
+          <div class="profile-main"><div class="avatar avatar-profile" id="profileAvatar">D</div><div class="profile-user"><h2 id="who">Player</h2><span class="mut" id="memberSince">Member</span></div><div class="profile-actions"><a id="adm" href="admin.html" hidden>Admin panel ↗</a><button id="logout">Log out</button></div></div>
+          <div class="profile-fields">
+            <div><label class="field-label" for="ign">Minecraft username (IGN)</label><input id="ign" placeholder="Your Minecraft username" autocomplete="off" maxlength="16"><p class="mut small">This is a profile label only. It does not connect to or verify a Minecraft account.</p></div>
+            <button class="p" id="saveIgn">Save profile</button>
+            <div class="msg" id="ignMsg" role="status"></div>
+          </div>
+        </div>
+        <div class="card account-note"><span class="note-icon">ⓘ</span><div><b>Account security</b><p class="mut">Use a unique password for DonutTrix. Never enter your Microsoft password here.</p></div></div>
+      </section>
+    </main>
+
+    <nav class="nav" aria-label="Main navigation">
+      <button data-tab="home" class="on"><i>⌂</i><span>Home</span></button>
+      <button data-tab="games"><i>◈</i><span>Games</span></button>
+      <button data-tab="wallet"><i>▣</i><span>Wallet</span></button>
+      <button data-tab="chat"><i>⌁</i><span>Chat</span></button>
+      <button data-tab="profile"><i>◎</i><span>Profile</span></button>
+    </nav>
+  </div>
+
+  <script src="games.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
